@@ -7,4 +7,19 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Guilded" Version="1.7.1" />
+    <PackageReference Include="Guilded.Base" Version="1.7.0" />
+    <PackageReference Include="Guilded.Commands" Version="1.7.1" />
+    <PackageReference Include="Guilded.Connection" Version="1.7.0" />
+    <PackageReference Include="Guilded.Markdown" Version="1.7.1" />
+    <PackageReference Include="Guilded.Webhook" Version="1.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Config\config.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
