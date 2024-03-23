@@ -14,12 +14,21 @@
     <PackageReference Include="Guilded.Connection" Version="1.7.0" />
     <PackageReference Include="Guilded.Markdown" Version="1.7.1" />
     <PackageReference Include="Guilded.Webhook" Version="1.7.0" />
+    <PackageReference Include="Humanizer" Version="2.14.1" />
   </ItemGroup>
 
   <ItemGroup>
     <None Update="Config\config.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="Data\json\greetings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Factories\" />
+    <Folder Include="Enums\" />
   </ItemGroup>
 
 </Project>
