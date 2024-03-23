@@ -48,7 +48,28 @@ namespace Pinkerton
             client.MessageCreated
                 .Subscribe(async msg =>
                 {
-                    await messageHandler.HandleMessage(msg.Message);
+                    var msgAuthorId = msg.CreatedBy;
+                    var serverId = msg.ServerId;
+                    try
+                    {
+                        var author = await msg.ParentClient.GetMemberAsync((HashId)serverId!, msgAuthorId);
+
+                        if (author.IsBot) return;
+                        await messageHandler.HandleMessage(msg.Message);
+                    }
+                    catch(Exception e)
+                    {
+                        var log = new SystemError()
+                        {
+                            ErrorCode = Guid.NewGuid(),
+                            ErrorMessage = e.Message
+                        };
+                        var time = DateTime.Now.ToString(timePattern);
+                        var date = DateTime.Now.ToShortDateString();
+                        Console.ForegroundColor = ConsoleColor.DarkGreen;
+                        Console.WriteLine($"[{date}][{time}][INFO]  [{client.Name}] {msgAuthorId}: {log.ErrorMessage}: {log.ErrorCode}");
+                    }
+                    
                 });
             #endregion
 
