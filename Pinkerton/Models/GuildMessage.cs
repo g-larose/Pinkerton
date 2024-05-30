@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 
 namespace Pinkerton.Models
 {
-    public class ChannelMessage
+    public class GuildMessage
     {
         public int Id { get; set; }
-        public Guid ChannelId { get; set; }
+        public Guid Identifier { get; set; }
+        public Guid? ChannelId { get; set; }
+        public DateTime? CreatedAt { get; set; }
+        public string? Content { get; set; }
         public string? ServerId { get; set; }
-        public ServerMember? Author { get; set; }
-        public int MemberId { get; set; }
-        public string? CreatedAt { get; set; }
-        public string? Message { get; set; }
+        public string? MemberId { get; set; }
 
     }
 }

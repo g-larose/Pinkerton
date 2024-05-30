@@ -11,5 +11,8 @@ namespace Pinkerton.Models
         public int Id { get; set; }
         public Guid ErrorCode { get; set; }
         public string? ErrorMessage { get; set; }
+        public string? ServerName { get; set; }
+        public string? ServerId { get; set; }
+
     }
 }
